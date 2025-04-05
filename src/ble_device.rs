@@ -149,8 +149,8 @@ impl BLEDevice {
     Ok(())
   }
 
-  pub fn new_client(&self) -> BLEClient {
-    BLEClient::new()
+  pub fn new_client(&self, timeout: u32) -> BLEClient {
+    BLEClient::new(timeout)
   }
 
   pub fn get_server(&self) -> &'static mut BLEServer {
