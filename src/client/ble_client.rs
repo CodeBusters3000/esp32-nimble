@@ -28,13 +28,13 @@ pub struct BLEClient {
 }
 
 impl BLEClient {
-  pub(crate) fn new() -> Self {
+  pub(crate) fn new(timeout: u32) -> Self {
     Self {
       state: ArcUnsafeCell::new(BLEClientState {
         address: None,
         conn_handle: esp_idf_sys::BLE_HS_CONN_HANDLE_NONE as _,
         services: None,
-        connect_timeout_ms: 30000,
+        connect_timeout_ms: timeout,
         ble_gap_conn_params: ble_gap_conn_params {
           scan_itvl: 16,
           scan_window: 16,
